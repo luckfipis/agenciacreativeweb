@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Agência Criativa Web — Design digital que transforma marcas em experiências memoráveis." />
+  <title>Agência Criativa Web</title>
+
+  <!-- Google Fonts: display + corpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+  <!-- ========================================================
+       HEADER / NAVEGAÇÃO
+       ======================================================== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+
+      <!-- Logo -->
+      <a href="#home" class="logo" aria-label="Agência Criativa Web – Início">
+        <span class="logo__mark">ACW</span>
+        <span class="logo__text">Agência Criativa Web</span>
+      </a>
+
+      <!-- Menu desktop -->
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a href="#home"        class="nav__link">Home</a></li>
+          <li><a href="#sobre"       class="nav__link">Sobre</a></li>
+          <li><a href="#servicos"    class="nav__link">Serviços</a></li>
+          <li><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
+          <li><a href="#contato"     class="nav__link nav__link--cta">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="hamburger__bar"></span>
+        <span class="hamburger__bar"></span>
+        <span class="hamburger__bar"></span>
+      </button>
+    </div>
+
+    <!-- Menu mobile (oculto por padrão) -->
+    <nav class="nav-mobile" id="mobileMenu" aria-label="Navegação mobile" aria-hidden="true">
+      <ul class="nav-mobile__list">
+        <li><a href="#home"        class="nav-mobile__link">Home</a></li>
+        <li><a href="#sobre"       class="nav-mobile__link">Sobre</a></li>
+        <li><a href="#servicos"    class="nav-mobile__link">Serviços</a></li>
+        <li><a href="#depoimentos" class="nav-mobile__link">Depoimentos</a></li>
+        <li><a href="#contato"     class="nav-mobile__link">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- ========================================================
+       SEÇÃO 1 — HOME / BANNER
+       ======================================================== -->
+  <section class="hero" id="home" aria-label="Banner principal">
+
+    <!-- Fundo decorativo com ruído/gradiente -->
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__grain"></div>
+      <div class="hero__circle hero__circle--1"></div>
+      <div class="hero__circle hero__circle--2"></div>
+    </div>
+
+    <div class="container hero__content">
+      <p class="hero__eyebrow">Studio de Design Digital</p>
+      <h1 class="hero__title">
+        Criamos experiências<br />
+        <em>que ficam na memória.</em>
+      </h1>
+      <p class="hero__subtitle">
+        Design estratégico, desenvolvimento web de alto desempenho e branding
+        que conecta sua marca às pessoas certas.
+      </p>
+      <div class="hero__actions">
+        <a href="#servicos" class="btn btn--gold">Nossos serviços</a>
+        <a href="#sobre"    class="btn btn--ghost">Conheça a agência</a>
+      </div>
+    </div>
+
+    <!-- Barra de scroll decorativa -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-label">scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SEÇÃO 2 — SOBRE NÓS
+       ======================================================== -->
+  <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="container sobre__grid">
+
+      <!-- Coluna de texto -->
+      <div class="sobre__text">
+        <p class="section-eyebrow">Sobre Nós</p>
+        <h2 class="section-title" id="sobre-titulo">
+          Onde estratégia<br />encontra o belo.
+        </h2>
+        <p class="sobre__body">
+          Fundada em 2015, a <strong>Agência Criativa Web</strong> nasceu da crença de
+          que design excepcional não é apenas estético — é a diferença entre uma
+          marca esquecível e uma marca irresistível. Somos um estúdio multidisciplinar
+          com sede em São Paulo, atendendo clientes em todo o Brasil e no exterior.
+        </p>
+        <p class="sobre__body">
+          Nossa abordagem combina pesquisa aprofundada, pensamento estratégico e
+          execução visual impecável. Cada projeto é tratado como único, com total
+          dedicação desde o briefing até a entrega final.
+        </p>
+
+        <!-- Valores em cards compactos -->
+        <ul class="sobre__values" aria-label="Nossos valores">
+          <li class="value-chip">✦ Propósito</li>
+          <li class="value-chip">✦ Excelência</li>
+          <li class="value-chip">✦ Inovação</li>
+          <li class="value-chip">✦ Transparência</li>
+        </ul>
+      </div>
+
+      <!-- Coluna visual -->
+      <div class="sobre__visual" aria-hidden="true">
+        <div class="sobre__img-wrap">
+          <!-- Imagem responsiva com srcset -->
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800"
+            srcset="
+              https://images.unsplash.com/photo-1497366216548-37526070297c?w=400  400w,
+              https://images.unsplash.com/photo-1497366216548-37526070297c?w=800  800w,
+              https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200 1200w
+            "
+            sizes="(max-width: 768px) 100vw, 50vw"
+            alt="Equipe da Agência Criativa Web em reunião criativa"
+            class="sobre__img"
+            loading="lazy"
+          />
+          <!-- Tag decorativa sobreposta -->
+          <div class="sobre__badge">
+            <span class="sobre__badge-num">+150</span>
+            <span class="sobre__badge-text">projetos entregues</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SEÇÃO 3 — SERVIÇOS (CSS Grid)
+       ======================================================== -->
+  <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
+    <div class="container">
+
+      <header class="servicos__header">
+        <p class="section-eyebrow section-eyebrow--light">O que fazemos</p>
+        <h2 class="section-title section-title--light" id="servicos-titulo">
+          Serviços que impulsionam<br />sua marca.
+        </h2>
+      </header>
+
+      <!-- Grid de cards de serviços -->
+      <ul class="servicos__grid" aria-label="Lista de serviços">
+
+        <li class="servico-card servico-card--featured">
+          <span class="servico-card__icon" aria-hidden="true">◈</span>
+          <h3 class="servico-card__title">Design de Identidade Visual</h3>
+          <p class="servico-card__desc">
+            Criamos marcas com personalidade: logotipos, paletas, tipografias e
+            sistemas visuais coesos que comunicam quem você é de forma instantânea.
+          </p>
+          <span class="servico-card__tag">Branding</span>
+        </li>
+
+        <li class="servico-card">
+          <span class="servico-card__icon" aria-hidden="true">⬡</span>
+          <h3 class="servico-card__title">Desenvolvimento Web</h3>
+          <p class="servico-card__desc">
+            Sites e aplicações de alto desempenho, acessíveis e otimizados para SEO,
+            construídos com as melhores tecnologias do mercado.
+          </p>
+          <span class="servico-card__tag">Dev</span>
+        </li>
+
+        <li class="servico-card">
+          <span class="servico-card__icon" aria-hidden="true">◎</span>
+          <h3 class="servico-card__title">UI/UX Design</h3>
+          <p class="servico-card__desc">
+            Interfaces centradas no usuário, com pesquisa, wireframes, prototipagem
+            e testes de usabilidade para experiências fluidas e intuitivas.
+          </p>
+          <span class="servico-card__tag">UX</span>
+        </li>
+
+        <li class="servico-card">
+          <span class="servico-card__icon" aria-hidden="true">▷</span>
+          <h3 class="servico-card__title">Motion & Animação</h3>
+          <p class="servico-card__desc">
+            Animações e motion graphics que dão vida à sua marca em vídeos,
+            apresentações e interfaces digitais.
+          </p>
+          <span class="servico-card__tag">Motion</span>
+        </li>
+
+        <li class="servico-card">
+          <span class="servico-card__icon" aria-hidden="true">◉</span>
+          <h3 class="servico-card__title">E-commerce</h3>
+          <p class="servico-card__desc">
+            Lojas virtuais otimizadas para conversão, com design atrativo e
+            integração com os principais meios de pagamento e logística.
+          </p>
+          <span class="servico-card__tag">Commerce</span>
+        </li>
+
+        <li class="servico-card">
+          <span class="servico-card__icon" aria-hidden="true">✦</span>
+          <h3 class="servico-card__title">Consultoria Estratégica</h3>
+          <p class="servico-card__desc">
+            Diagnóstico completo da sua presença digital e roadmap de ações para
+            posicionar sua marca onde ela merece estar.
+          </p>
+          <span class="servico-card__tag">Estratégia</span>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SEÇÃO 4 — DEPOIMENTOS
+       ======================================================== -->
+  <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-titulo">
+    <div class="container">
+
+      <p class="section-eyebrow">Depoimentos</p>
+      <h2 class="section-title" id="depoimentos-titulo">
+        O que nossos clientes dizem.
+      </h2>
+
+      <div class="depoimentos__grid">
+
+        <article class="depo-card depo-card--highlight">
+          <blockquote class="depo-card__quote">
+            "A ACW transformou completamente a percepção da nossa marca no mercado.
+            O processo foi impecável — do briefing à entrega, sentimos que cada
+            detalhe importava para eles tanto quanto para nós."
+          </blockquote>
+          <footer class="depo-card__author">
+            <div class="depo-card__avatar" aria-hidden="true">MF</div>
+            <div>
+              <cite class="depo-card__name">Mariana Fonseca</cite>
+              <p class="depo-card__role">CEO · Fonseca Cosméticos</p>
+            </div>
+          </footer>
+        </article>
+
+        <article class="depo-card">
+          <blockquote class="depo-card__quote">
+            "Nosso e-commerce cresceu 240% em receita após a reformulação feita
+            pela equipe. Profissionalismo e criatividade em doses iguais."
+          </blockquote>
+          <footer class="depo-card__author">
+            <div class="depo-card__avatar" aria-hidden="true">RL</div>
+            <div>
+              <cite class="depo-card__name">Rafael Lima</cite>
+              <p class="depo-card__role">Fundador · Loja Haus</p>
+            </div>
+          </footer>
+        </article>
+
+        <article class="depo-card">
+          <blockquote class="depo-card__quote">
+            "Rápidos, criativos e extremamente cuidadosos com os prazos. O site
+            ficou lindo e nossos clientes adoraram a experiência."
+          </blockquote>
+          <footer class="depo-card__author">
+            <div class="depo-card__avatar" aria-hidden="true">CS</div>
+            <div>
+              <cite class="depo-card__name">Camila Souza</cite>
+              <p class="depo-card__role">Diretora de Marketing · Grupo Altus</p>
+            </div>
+          </footer>
+        </article>
+
+        <article class="depo-card">
+          <blockquote class="depo-card__quote">
+            "A identidade visual criada para a nossa startup nos ajudou a captar
+            investimento. A credibilidade que o design transmite é inestimável."
+          </blockquote>
+          <footer class="depo-card__author">
+            <div class="depo-card__avatar" aria-hidden="true">PT</div>
+            <div>
+              <cite class="depo-card__name">Pedro Torres</cite>
+              <p class="depo-card__role">Co-fundador · Fintech Pluma</p>
+            </div>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SEÇÃO 5 — CONTATO
+       ======================================================== -->
+  <section class="contato" id="contato" aria-labelledby="contato-titulo">
+    <div class="container contato__grid">
+
+      <!-- Informações de contato -->
+      <div class="contato__info">
+        <p class="section-eyebrow section-eyebrow--light">Contato</p>
+        <h2 class="section-title section-title--light" id="contato-titulo">
+          Vamos criar algo<br /><em>extraordinário juntos.</em>
+        </h2>
+        <p class="contato__desc">
+          Pronto para elevar sua presença digital? Entre em contato — respondemos
+          em até 24 horas úteis.
+        </p>
+
+        <ul class="contato__details" aria-label="Informações de contato">
+          <li class="contato__item">
+            <span class="contato__item-icon" aria-hidden="true">◈</span>
+            <div>
+              <strong>Endereço</strong>
+              <p>Av. Paulista, 1578 — 12º andar<br />São Paulo, SP · 01310-200</p>
+            </div>
+          </li>
+          <li class="contato__item">
+            <span class="contato__item-icon" aria-hidden="true">◉</span>
+            <div>
+              <strong>Telefone</strong>
+              <p><a href="tel:+551130001234" class="contato__link">(11) 3000-1234</a></p>
+            </div>
+          </li>
+          <li class="contato__item">
+            <span class="contato__item-icon" aria-hidden="true">✦</span>
+            <div>
+              <strong>E-mail</strong>
+              <p><a href="mailto:ola@agenciacriativaweb.com.br" class="contato__link">ola@agenciacriativaweb.com.br</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Formulário de contato -->
+      <div class="contato__form-wrap">
+        <form class="form" id="contatoForm" novalidate aria-label="Formulário de contato">
+
+          <div class="form__group">
+            <label class="form__label" for="nome">Nome completo</label>
+            <input
+              class="form__input"
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="email">E-mail</label>
+            <input
+              class="form__input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="assunto">Assunto</label>
+            <input
+              class="form__input"
+              type="text"
+              id="assunto"
+              name="assunto"
+              placeholder="Como podemos ajudar?"
+            />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="mensagem">Mensagem</label>
+            <textarea
+              class="form__input form__textarea"
+              id="mensagem"
+              name="mensagem"
+              rows="5"
+              placeholder="Conte-nos sobre seu projeto..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--gold btn--full">
+            Enviar mensagem
+          </button>
+
+          <!-- Feedback de envio -->
+          <p class="form__feedback" id="formFeedback" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer" aria-label="Rodapé">
+    <div class="container footer__inner">
+      <p class="footer__brand">ACW · Agência Criativa Web</p>
+      <nav aria-label="Links do rodapé">
+        <ul class="footer__links">
+          <li><a href="#home"        class="footer__link">Home</a></li>
+          <li><a href="#sobre"       class="footer__link">Sobre</a></li>
+          <li><a href="#servicos"    class="footer__link">Serviços</a></li>
+          <li><a href="#contato"     class="footer__link">Contato</a></li>
+        </ul>
+      </nav>
+      <p class="footer__copy">&copy; 2025 Agência Criativa Web. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
