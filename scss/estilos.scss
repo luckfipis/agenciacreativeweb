@@ -1,0 +1,23 @@
+// =============================================================
+// estilos.scss — Agência Criativa Web
+// Arquivo de entrada: importa todos os parciais com @use.
+//
+// Ordem de importação:
+//   1. Variáveis e mixins (sem saída CSS)
+//   2. Base (reset, body)
+//   3. Layout (utilitários, animações, media queries)
+//   4. Componentes (blocos BEM)
+// =============================================================
+
+// 1. Abstratos (sem saída CSS direta)
+@use 'variaveis';
+@use 'mixins';
+
+// 2. Base
+@use 'base';
+
+// 3. Layout
+@use 'layout';
+
+// 4. Componentes e blocos BEM
+@use 'componentes';

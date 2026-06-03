@@ -1,0 +1,10 @@
+{
+  "name": "agenciaweb",
+  "version": "1.0.0",
+  "scripts": {
+    "sass": "sass --watch scss/estilos.scss css/estilos.css --style=expanded"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

@@ -1,0 +1,53 @@
+// =============================================================
+// _variaveis.scss — Tokens de design centralizados
+// Altere aqui para refletir em todo o projeto.
+// =============================================================
+
+// ── Paleta de cores ──────────────────────────────────────────
+$cor-bg-primario:     #0d0d0f;
+$cor-bg-secundario:   #141416;
+$cor-bg-borda:        #1c1c1f;
+$cor-bg-claro:        #f8f6f2;
+
+$cor-acento:          #c9a84c;
+$cor-acento-hover:    #e6c97b;
+$cor-acento-sutil:    rgba(201, 168, 76, 0.08);
+$cor-acento-dim:      rgba(201, 168, 76, 0.1);
+
+$cor-texto-base:      #f5f0e8;
+$cor-texto-mudo:      #7a7a85;
+$cor-texto-corpo:     #4a4a55;
+$cor-texto-badge:     rgba(13, 13, 15, 0.7);
+$cor-branco:          #ffffff;
+
+// ── Tipografia ───────────────────────────────────────────────
+$fonte-display: 'Cormorant Garamond', Georgia, serif;
+$fonte-corpo:   'DM Sans', system-ui, sans-serif;
+
+// ── Escala de espaçamento ────────────────────────────────────
+$espaco-1:  0.5rem;   //  8px
+$espaco-2:  1rem;     // 16px
+$espaco-3:  2rem;     // 32px
+$espaco-4:  4rem;     // 64px
+$espaco-5:  7rem;     // 112px
+$espaco-6:  10rem;    // 160px
+
+// ── Bordas ───────────────────────────────────────────────────
+$raio-sm:   4px;
+$raio-md:   12px;
+$raio-lg:   24px;
+$raio-pill: 2rem;
+
+// ── Animação ─────────────────────────────────────────────────
+$ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+$duracao:    0.35s;
+$transicao:  #{$duracao} #{$ease-out};
+
+// ── Layout ───────────────────────────────────────────────────
+$max-width:     75rem;   // 1200px
+$altura-header: 4.5rem;  //  72px
+
+// ── Breakpoints ──────────────────────────────────────────────
+$bp-tablet: 64em;   // 1024px
+$bp-mobile: 48em;   //  768px
+$bp-mini:   30em;   //  480px

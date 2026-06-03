@@ -1,0 +1,842 @@
+// =============================================================
+// _componentes.scss — Componentes reutilizáveis e blocos BEM
+// Ordem: componentes base → header → hero → sobre →
+//        serviços → depoimentos → contato → footer
+// =============================================================
+
+@use 'variaveis' as v;
+@use 'mixins' as m;
+
+// ─────────────────────────────────────────────────────────────
+// COMPONENTES BASE
+// ─────────────────────────────────────────────────────────────
+
+// ── Eyebrow ──────────────────────────────────────────────────
+.eyebrow {
+  @include m.eyebrow-style;
+
+  // Modificador: versão clara para fundos escuros
+  &--light {
+    color: v.$cor-acento-hover;
+  }
+}
+
+// ── Título de seção ──────────────────────────────────────────
+.section-title {
+  font-family: v.$fonte-display;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: v.$cor-bg-primario;
+  letter-spacing: -0.01em;
+
+  em {
+    font-style: italic;
+    color: v.$cor-acento;
+  }
+
+  // Modificador: texto claro para seções escuras
+  &--light {
+    color: v.$cor-texto-base;
+  }
+}
+
+// ── Botão (.btn) ─────────────────────────────────────────────
+// BEM: .btn / .btn--gold / .btn--ghost / .btn--full
+.btn {
+  @include m.btn-base;
+
+  // Modificador dourado (preenchido)
+  &--gold {
+    background-color: v.$cor-acento;
+    color: v.$cor-bg-primario;
+    border-color: v.$cor-acento;
+
+    &:hover {
+      background-color: v.$cor-acento-hover;
+      border-color: v.$cor-acento-hover;
+    }
+  }
+
+  // Modificador fantasma (contorno)
+  &--ghost {
+    background-color: transparent;
+    color: v.$cor-texto-base;
+    border-color: rgba(255, 255, 255, 0.3);
+
+    &:hover {
+      border-color: v.$cor-acento;
+      color: v.$cor-acento;
+    }
+  }
+
+  // Modificador largura total
+  &--full {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// ── Card base ─────────────────────────────────────────────────
+.card {
+  border-radius: v.$raio-md;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid v.$cor-bg-borda;
+  transition:
+    border-color v.$transicao,
+    transform v.$transicao,
+    box-shadow v.$transicao;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+// ── Tag (rótulo de categoria) ─────────────────────────────────
+.tag {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  background-color: v.$cor-acento-dim;
+  border-radius: v.$raio-pill;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: v.$cor-acento;
+}
+
+// ── Badge numérico ────────────────────────────────────────────
+// BEM: .badge / .badge__number / .badge__label
+.badge {
+  background-color: v.$cor-acento;
+  border-radius: v.$raio-md;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
+
+  &__number {
+    display: block;
+    font-family: v.$fonte-display;
+    font-size: 2rem;
+    font-weight: 600;
+    color: v.$cor-bg-primario;
+    line-height: 1;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: v.$cor-texto-badge;
+    margin-top: 0.2rem;
+  }
+}
+
+// ── Formulário ────────────────────────────────────────────────
+// BEM: .form / .form__group / .form__label / .form__input / .form__feedback
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: v.$cor-bg-borda;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: v.$raio-lg;
+  padding: clamp(1.5rem, 4vw, 3rem);
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &__label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: v.$cor-texto-mudo;
+  }
+
+  &__input {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid v.$cor-bg-borda;
+    border-radius: v.$raio-sm;
+    padding: 0.85em 1em;
+    font-family: v.$fonte-corpo;
+    font-size: 1rem;
+    color: v.$cor-texto-base;
+    width: 100%;
+    outline: none;
+    transition:
+      border-color v.$transicao,
+      background-color v.$transicao;
+
+    &::placeholder {
+      color: v.$cor-texto-mudo;
+      opacity: 0.6;
+    }
+
+    &:focus {
+      border-color: v.$cor-acento;
+      background-color: rgba(201, 168, 76, 0.04);
+    }
+
+    // Modificador: área de texto
+    &--textarea {
+      resize: vertical;
+      min-height: 8rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__feedback {
+    font-size: 0.875rem;
+    text-align: center;
+    min-height: 1.4em;
+    color: v.$cor-acento;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BLOCO: HEADER
+// BEM: .header / .header__inner / .logo / .nav / .hamburger / .nav-mobile
+// ─────────────────────────────────────────────────────────────
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(13, 13, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid v.$cor-bg-borda;
+  transition: background-color v.$transicao;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: v.$altura-header;
+    padding-inline: 5%;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  &__mark {
+    font-family: v.$fonte-display;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: v.$cor-acento;
+    letter-spacing: 0.05em;
+  }
+
+  &__text {
+    font-family: v.$fonte-corpo;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: v.$cor-texto-mudo;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: v.$cor-texto-mudo;
+    letter-spacing: 0.03em;
+    position: relative;
+    transition: color v.$transicao;
+
+    // Sublinhado animado
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: v.$cor-acento;
+      transition: width v.$transicao;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: v.$cor-texto-base;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    // Modificador: link CTA com borda
+    &--cta {
+      padding: 0.5em 1.2em;
+      border: 1px solid v.$cor-acento;
+      border-radius: v.$raio-sm;
+      color: v.$cor-acento;
+
+      &:hover {
+        background-color: v.$cor-acento;
+        color: v.$cor-bg-primario;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: v.$raio-sm;
+  transition: background-color v.$transicao;
+
+  &:hover {
+    background-color: v.$cor-bg-borda;
+  }
+
+  &__bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: v.$cor-texto-base;
+    border-radius: 2px;
+    transition:
+      transform v.$transicao,
+      opacity v.$transicao;
+    transform-origin: center;
+  }
+
+  &.is-open {
+    .hamburger__bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger__bar:nth-child(2) { opacity: 0; }
+    .hamburger__bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: v.$cor-bg-secundario;
+  border-bottom: 1px solid v.$cor-bg-borda;
+  padding-block: v.$espaco-2;
+
+  &.is-open {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    color: v.$cor-texto-mudo;
+    border-bottom: 1px solid v.$cor-bg-borda;
+    transition:
+      color v.$transicao,
+      background-color v.$transicao;
+
+    &:hover {
+      color: v.$cor-acento;
+      background-color: v.$cor-bg-borda;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BLOCO: HERO
+// BEM: .hero / .hero__bg / .hero__circle / .hero__content etc.
+// ─────────────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: v.$altura-header;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.18;
+
+    &--1 {
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, v.$cor-acento 0%, transparent 70%);
+      top: -20%;
+      right: -15%;
+    }
+
+    &--2 {
+      width: 40vw;
+      height: 40vw;
+      background: radial-gradient(circle, #6b3fa0 0%, transparent 70%);
+      bottom: -10%;
+      left: -10%;
+    }
+  }
+
+  &__grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding-block: v.$espaco-5;
+    max-width: 56rem;
+  }
+
+  &__eyebrow {
+    @include m.eyebrow-style;
+    letter-spacing: 0.25em;
+    margin-bottom: v.$espaco-3;
+    opacity: 0;
+    animation: fadeUp 0.8s v.$ease-out 0.2s forwards;
+  }
+
+  &__title {
+    font-family: v.$fonte-display;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: v.$cor-texto-base;
+    letter-spacing: -0.02em;
+    margin-bottom: v.$espaco-3;
+    opacity: 0;
+    animation: fadeUp 0.9s v.$ease-out 0.4s forwards;
+
+    em {
+      font-style: italic;
+      color: v.$cor-acento;
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: v.$cor-texto-mudo;
+    max-width: 38rem;
+    margin-bottom: v.$espaco-4;
+    opacity: 0;
+    animation: fadeUp 0.9s v.$ease-out 0.6s forwards;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: v.$espaco-2;
+    opacity: 0;
+    animation: fadeUp 0.9s v.$ease-out 0.8s forwards;
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    z-index: 1;
+  }
+
+  &__scroll-line {
+    display: block;
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, v.$cor-acento, transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  &__scroll-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: v.$cor-texto-mudo;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BLOCO: SOBRE
+// BEM: .sobre / .sobre__grid / .sobre__body / .sobre__values etc.
+// ─────────────────────────────────────────────────────────────
+.sobre {
+  background-color: v.$cor-bg-claro;
+  @include m.secao-espacamento;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  &__body {
+    font-size: 1rem;
+    color: v.$cor-texto-corpo;
+    margin-top: v.$espaco-3;
+    line-height: 1.8;
+  }
+
+  &__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: v.$espaco-1;
+    margin-top: v.$espaco-3;
+  }
+
+  &__value-chip {
+    padding: 0.4em 1em;
+    border: 1px solid v.$cor-acento;
+    border-radius: v.$raio-pill;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #6b5a2a;
+    letter-spacing: 0.05em;
+    background-color: v.$cor-acento-sutil;
+  }
+
+  &__img-wrap {
+    position: relative;
+    border-radius: v.$raio-md;
+    overflow: visible;
+  }
+
+  &__img {
+    width: 100%;
+    height: 28rem;
+    object-fit: cover;
+    border-radius: v.$raio-md;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+  }
+
+  &__badge {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BLOCO: SERVIÇOS
+// BEM: .servicos / .servicos__header / .servicos__grid / .servico-card
+// ─────────────────────────────────────────────────────────────
+.servicos {
+  background-color: v.$cor-bg-primario;
+  @include m.secao-espacamento;
+
+  &__header {
+    text-align: center;
+    margin-bottom: v.$espaco-4;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.servico-card {
+  background-color: v.$cor-bg-secundario;
+  cursor: default;
+
+  &:hover {
+    border-color: v.$cor-acento;
+    box-shadow: 0 16px 48px rgba(201, 168, 76, 0.1);
+  }
+
+  // Modificador: card destaque ocupa 2 colunas
+  &--featured {
+    grid-column: span 2;
+    background: linear-gradient(
+      135deg,
+      v.$cor-bg-secundario 60%,
+      rgba(201, 168, 76, 0.06)
+    );
+    border-color: rgba(201, 168, 76, 0.3);
+  }
+
+  &__icon {
+    display: inline-block;
+    font-size: 1.75rem;
+    color: v.$cor-acento;
+    margin-bottom: v.$espaco-2;
+  }
+
+  &__title {
+    font-family: v.$fonte-display;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    color: v.$cor-texto-base;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    color: v.$cor-texto-mudo;
+    line-height: 1.75;
+  }
+
+  &__tag {
+    margin-top: v.$espaco-2;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BLOCO: DEPOIMENTOS
+// BEM: .depoimentos / .depoimentos__grid / .depo-card
+// ─────────────────────────────────────────────────────────────
+.depoimentos {
+  background-color: v.$cor-bg-claro;
+  @include m.secao-espacamento;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: 1.5rem;
+    margin-top: v.$espaco-4;
+  }
+}
+
+.depo-card {
+  background-color: v.$cor-branco;
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  // Modificador: fundo escuro para o card em destaque
+  &--highlight {
+    background-color: v.$cor-bg-primario;
+    border-color: rgba(201, 168, 76, 0.3);
+
+    .depo-card__quote { color: v.$cor-texto-base; }
+    .depo-card__name  { color: v.$cor-acento; }
+    .depo-card__role  { color: v.$cor-texto-mudo; }
+  }
+
+  &__quote {
+    font-family: v.$fonte-display;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-style: italic;
+    line-height: 1.7;
+    color: #2a2a35;
+    margin-bottom: v.$espaco-3;
+
+    &::before {
+      content: '\201C';
+      font-size: 3em;
+      color: v.$cor-acento;
+      line-height: 0;
+      vertical-align: -0.4em;
+      margin-right: 0.1em;
+      font-family: v.$fonte-display;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-style: normal;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: v.$cor-acento;
+    color: v.$cor-bg-primario;
+    @include m.flex-centro;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  &__name {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: v.$cor-bg-primario;
+  }
+
+  &__role {
+    font-size: 0.78rem;
+    color: v.$cor-texto-mudo;
+    margin-top: 0.1rem;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BLOCO: CONTATO
+// BEM: .contato / .contato__grid / .contato__desc / .contato__details etc.
+// ─────────────────────────────────────────────────────────────
+.contato {
+  background-color: v.$cor-bg-secundario;
+  @include m.secao-espacamento;
+  border-top: 1px solid v.$cor-bg-borda;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  &__desc {
+    font-size: 1rem;
+    color: v.$cor-texto-mudo;
+    margin-top: v.$espaco-3;
+    line-height: 1.8;
+    max-width: 26rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: v.$espaco-3;
+    margin-top: v.$espaco-4;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__item-icon {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    color: v.$cor-acento;
+    margin-top: 0.15rem;
+  }
+
+  &__item-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: v.$cor-texto-mudo;
+    margin-bottom: 0.25rem;
+  }
+
+  &__item-value {
+    font-size: 0.95rem;
+    color: v.$cor-texto-base;
+    line-height: 1.5;
+  }
+
+  &__link {
+    color: v.$cor-acento;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color v.$transicao;
+
+    &:hover {
+      color: v.$cor-acento-hover;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BLOCO: FOOTER
+// BEM: .footer / .footer__inner / .footer__brand / .footer__links etc.
+// ─────────────────────────────────────────────────────────────
+.footer {
+  background-color: v.$cor-bg-primario;
+  border-top: 1px solid v.$cor-bg-borda;
+  padding-block: v.$espaco-3;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: v.$espaco-2;
+  }
+
+  &__brand {
+    font-family: v.$fonte-display;
+    font-size: 1rem;
+    color: v.$cor-acento;
+    letter-spacing: 0.05em;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  &__link {
+    font-size: 0.8rem;
+    color: v.$cor-texto-mudo;
+    transition: color v.$transicao;
+
+    &:hover {
+      color: v.$cor-acento;
+    }
+  }
+
+  &__copy {
+    width: 100%;
+    font-size: 0.75rem;
+    color: v.$cor-texto-mudo;
+    text-align: center;
+    padding-top: v.$espaco-2;
+    border-top: 1px solid v.$cor-bg-borda;
+    // Usando operador SASS para calcular margem proporcional
+    margin-top: calc(v.$espaco-1 / 1);
+  }
+}
