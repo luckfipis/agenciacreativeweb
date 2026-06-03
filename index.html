@@ -6,7 +6,7 @@
   <meta name="description" content="Agência Criativa Web — Design digital que transforma marcas em experiências memoráveis." />
   <title>Agência Criativa Web</title>
 
-  <!-- Google Fonts: display + corpo -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -21,13 +21,13 @@
   <header class="header" id="header">
     <div class="header__inner">
 
-      <!-- Logo -->
+      <!-- Logo — BEM: .logo / .logo__mark / .logo__text -->
       <a href="#home" class="logo" aria-label="Agência Criativa Web – Início">
         <span class="logo__mark">ACW</span>
         <span class="logo__text">Agência Criativa Web</span>
       </a>
 
-      <!-- Menu desktop -->
+      <!-- Navegação desktop — BEM: .nav / .nav__list / .nav__link -->
       <nav class="nav" aria-label="Navegação principal">
         <ul class="nav__list">
           <li><a href="#home"        class="nav__link">Home</a></li>
@@ -38,15 +38,18 @@
         </ul>
       </nav>
 
-      <!-- Botão hambúrguer (mobile) -->
-      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <!-- Botão hambúrguer — BEM: .hamburger / .hamburger__bar -->
+      <button class="hamburger" id="hamburger"
+              aria-label="Abrir menu"
+              aria-expanded="false"
+              aria-controls="mobileMenu">
         <span class="hamburger__bar"></span>
         <span class="hamburger__bar"></span>
         <span class="hamburger__bar"></span>
       </button>
     </div>
 
-    <!-- Menu mobile (oculto por padrão) -->
+    <!-- Menu mobile — BEM: .nav-mobile / .nav-mobile__list / .nav-mobile__link -->
     <nav class="nav-mobile" id="mobileMenu" aria-label="Navegação mobile" aria-hidden="true">
       <ul class="nav-mobile__list">
         <li><a href="#home"        class="nav-mobile__link">Home</a></li>
@@ -60,18 +63,18 @@
 
 
   <!-- ========================================================
-       SEÇÃO 1 — HOME / BANNER
+       SEÇÃO 1 — HOME
        ======================================================== -->
   <section class="hero" id="home" aria-label="Banner principal">
 
-    <!-- Fundo decorativo com ruído/gradiente -->
+    <!-- Fundo decorativo — BEM: .hero__bg / .hero__grain / .hero__circle -->
     <div class="hero__bg" aria-hidden="true">
       <div class="hero__grain"></div>
       <div class="hero__circle hero__circle--1"></div>
       <div class="hero__circle hero__circle--2"></div>
     </div>
 
-    <div class="container hero__content">
+    <div class="u-container hero__content">
       <p class="hero__eyebrow">Studio de Design Digital</p>
       <h1 class="hero__title">
         Criamos experiências<br />
@@ -87,7 +90,7 @@
       </div>
     </div>
 
-    <!-- Barra de scroll decorativa -->
+    <!-- Indicador de scroll — BEM: .hero__scroll / .hero__scroll-line / .hero__scroll-label -->
     <div class="hero__scroll" aria-hidden="true">
       <span class="hero__scroll-line"></span>
       <span class="hero__scroll-label">scroll</span>
@@ -99,11 +102,12 @@
        SEÇÃO 2 — SOBRE NÓS
        ======================================================== -->
   <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
-    <div class="container sobre__grid">
+    <div class="u-container sobre__grid">
 
       <!-- Coluna de texto -->
       <div class="sobre__text">
-        <p class="section-eyebrow">Sobre Nós</p>
+        <!-- Componente reutilizável .eyebrow -->
+        <p class="eyebrow">Sobre Nós</p>
         <h2 class="section-title" id="sobre-titulo">
           Onde estratégia<br />encontra o belo.
         </h2>
@@ -119,16 +123,16 @@
           dedicação desde o briefing até a entrega final.
         </p>
 
-        <!-- Valores em cards compactos -->
+        <!-- Chips de valores — BEM: .sobre__values / .sobre__value-chip -->
         <ul class="sobre__values" aria-label="Nossos valores">
-          <li class="value-chip">✦ Propósito</li>
-          <li class="value-chip">✦ Excelência</li>
-          <li class="value-chip">✦ Inovação</li>
-          <li class="value-chip">✦ Transparência</li>
+          <li class="sobre__value-chip">✦ Propósito</li>
+          <li class="sobre__value-chip">✦ Excelência</li>
+          <li class="sobre__value-chip">✦ Inovação</li>
+          <li class="sobre__value-chip">✦ Transparência</li>
         </ul>
       </div>
 
-      <!-- Coluna visual -->
+      <!-- Coluna visual — BEM: .sobre__visual / .sobre__img-wrap / .sobre__img -->
       <div class="sobre__visual" aria-hidden="true">
         <div class="sobre__img-wrap">
           <!-- Imagem responsiva com srcset -->
@@ -144,10 +148,10 @@
             class="sobre__img"
             loading="lazy"
           />
-          <!-- Tag decorativa sobreposta -->
-          <div class="sobre__badge">
-            <span class="sobre__badge-num">+150</span>
-            <span class="sobre__badge-text">projetos entregues</span>
+          <!-- Badge — componente reutilizável .badge / .badge__number / .badge__label -->
+          <div class="badge sobre__badge">
+            <span class="badge__number">+150</span>
+            <span class="badge__label">projetos entregues</span>
           </div>
         </div>
       </div>
@@ -157,79 +161,82 @@
 
 
   <!-- ========================================================
-       SEÇÃO 3 — SERVIÇOS (CSS Grid)
+       SEÇÃO 3 — SERVIÇOS
        ======================================================== -->
   <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
-    <div class="container">
+    <div class="u-container">
 
       <header class="servicos__header">
-        <p class="section-eyebrow section-eyebrow--light">O que fazemos</p>
+        <!-- Componentes reutilizáveis: .eyebrow--light e .section-title--light -->
+        <p class="eyebrow eyebrow--light">O que fazemos</p>
         <h2 class="section-title section-title--light" id="servicos-titulo">
           Serviços que impulsionam<br />sua marca.
         </h2>
       </header>
 
-      <!-- Grid de cards de serviços -->
+      <!-- Grid — BEM: .servicos__grid / .servico-card / .servico-card--featured -->
       <ul class="servicos__grid" aria-label="Lista de serviços">
 
-        <li class="servico-card servico-card--featured">
+        <!-- Card destaque (modificador --featured) -->
+        <li class="card servico-card servico-card--featured">
           <span class="servico-card__icon" aria-hidden="true">◈</span>
           <h3 class="servico-card__title">Design de Identidade Visual</h3>
           <p class="servico-card__desc">
             Criamos marcas com personalidade: logotipos, paletas, tipografias e
             sistemas visuais coesos que comunicam quem você é de forma instantânea.
           </p>
-          <span class="servico-card__tag">Branding</span>
+          <!-- Tag — componente reutilizável .tag -->
+          <span class="tag servico-card__tag">Branding</span>
         </li>
 
-        <li class="servico-card">
+        <li class="card servico-card">
           <span class="servico-card__icon" aria-hidden="true">⬡</span>
           <h3 class="servico-card__title">Desenvolvimento Web</h3>
           <p class="servico-card__desc">
             Sites e aplicações de alto desempenho, acessíveis e otimizados para SEO,
             construídos com as melhores tecnologias do mercado.
           </p>
-          <span class="servico-card__tag">Dev</span>
+          <span class="tag servico-card__tag">Dev</span>
         </li>
 
-        <li class="servico-card">
+        <li class="card servico-card">
           <span class="servico-card__icon" aria-hidden="true">◎</span>
           <h3 class="servico-card__title">UI/UX Design</h3>
           <p class="servico-card__desc">
             Interfaces centradas no usuário, com pesquisa, wireframes, prototipagem
             e testes de usabilidade para experiências fluidas e intuitivas.
           </p>
-          <span class="servico-card__tag">UX</span>
+          <span class="tag servico-card__tag">UX</span>
         </li>
 
-        <li class="servico-card">
+        <li class="card servico-card">
           <span class="servico-card__icon" aria-hidden="true">▷</span>
           <h3 class="servico-card__title">Motion & Animação</h3>
           <p class="servico-card__desc">
             Animações e motion graphics que dão vida à sua marca em vídeos,
             apresentações e interfaces digitais.
           </p>
-          <span class="servico-card__tag">Motion</span>
+          <span class="tag servico-card__tag">Motion</span>
         </li>
 
-        <li class="servico-card">
+        <li class="card servico-card">
           <span class="servico-card__icon" aria-hidden="true">◉</span>
           <h3 class="servico-card__title">E-commerce</h3>
           <p class="servico-card__desc">
             Lojas virtuais otimizadas para conversão, com design atrativo e
             integração com os principais meios de pagamento e logística.
           </p>
-          <span class="servico-card__tag">Commerce</span>
+          <span class="tag servico-card__tag">Commerce</span>
         </li>
 
-        <li class="servico-card">
+        <li class="card servico-card">
           <span class="servico-card__icon" aria-hidden="true">✦</span>
           <h3 class="servico-card__title">Consultoria Estratégica</h3>
           <p class="servico-card__desc">
             Diagnóstico completo da sua presença digital e roadmap de ações para
             posicionar sua marca onde ela merece estar.
           </p>
-          <span class="servico-card__tag">Estratégia</span>
+          <span class="tag servico-card__tag">Estratégia</span>
         </li>
 
       </ul>
@@ -241,16 +248,17 @@
        SEÇÃO 4 — DEPOIMENTOS
        ======================================================== -->
   <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-titulo">
-    <div class="container">
+    <div class="u-container">
 
-      <p class="section-eyebrow">Depoimentos</p>
+      <p class="eyebrow">Depoimentos</p>
       <h2 class="section-title" id="depoimentos-titulo">
         O que nossos clientes dizem.
       </h2>
 
+      <!-- Grid — BEM: .depoimentos__grid / .depo-card / .depo-card--highlight -->
       <div class="depoimentos__grid">
 
-        <article class="depo-card depo-card--highlight">
+        <article class="card depo-card depo-card--highlight">
           <blockquote class="depo-card__quote">
             "A ACW transformou completamente a percepção da nossa marca no mercado.
             O processo foi impecável — do briefing à entrega, sentimos que cada
@@ -265,7 +273,7 @@
           </footer>
         </article>
 
-        <article class="depo-card">
+        <article class="card depo-card">
           <blockquote class="depo-card__quote">
             "Nosso e-commerce cresceu 240% em receita após a reformulação feita
             pela equipe. Profissionalismo e criatividade em doses iguais."
@@ -279,7 +287,7 @@
           </footer>
         </article>
 
-        <article class="depo-card">
+        <article class="card depo-card">
           <blockquote class="depo-card__quote">
             "Rápidos, criativos e extremamente cuidadosos com os prazos. O site
             ficou lindo e nossos clientes adoraram a experiência."
@@ -293,7 +301,7 @@
           </footer>
         </article>
 
-        <article class="depo-card">
+        <article class="card depo-card">
           <blockquote class="depo-card__quote">
             "A identidade visual criada para a nossa startup nos ajudou a captar
             investimento. A credibilidade que o design transmite é inestimável."
@@ -316,11 +324,11 @@
        SEÇÃO 5 — CONTATO
        ======================================================== -->
   <section class="contato" id="contato" aria-labelledby="contato-titulo">
-    <div class="container contato__grid">
+    <div class="u-container contato__grid">
 
       <!-- Informações de contato -->
       <div class="contato__info">
-        <p class="section-eyebrow section-eyebrow--light">Contato</p>
+        <p class="eyebrow eyebrow--light">Contato</p>
         <h2 class="section-title section-title--light" id="contato-titulo">
           Vamos criar algo<br /><em>extraordinário juntos.</em>
         </h2>
@@ -329,89 +337,76 @@
           em até 24 horas úteis.
         </p>
 
+        <!-- BEM: .contato__details / .contato__item / .contato__item-icon
+                  .contato__item-label / .contato__item-value -->
         <ul class="contato__details" aria-label="Informações de contato">
           <li class="contato__item">
             <span class="contato__item-icon" aria-hidden="true">◈</span>
             <div>
-              <strong>Endereço</strong>
-              <p>Av. Paulista, 1578 — 12º andar<br />São Paulo, SP · 01310-200</p>
+              <strong class="contato__item-label">Endereço</strong>
+              <p class="contato__item-value">
+                Av. Paulista, 1578 — 12º andar<br />São Paulo, SP · 01310-200
+              </p>
             </div>
           </li>
           <li class="contato__item">
             <span class="contato__item-icon" aria-hidden="true">◉</span>
             <div>
-              <strong>Telefone</strong>
-              <p><a href="tel:+551130001234" class="contato__link">(11) 3000-1234</a></p>
+              <strong class="contato__item-label">Telefone</strong>
+              <p class="contato__item-value">
+                <a href="tel:+551130001234" class="contato__link">(11) 3000-1234</a>
+              </p>
             </div>
           </li>
           <li class="contato__item">
             <span class="contato__item-icon" aria-hidden="true">✦</span>
             <div>
-              <strong>E-mail</strong>
-              <p><a href="mailto:ola@agenciacriativaweb.com.br" class="contato__link">ola@agenciacriativaweb.com.br</a></p>
+              <strong class="contato__item-label">E-mail</strong>
+              <p class="contato__item-value">
+                <a href="mailto:ola@agenciacriativaweb.com.br" class="contato__link">
+                  ola@agenciacriativaweb.com.br
+                </a>
+              </p>
             </div>
           </li>
         </ul>
       </div>
 
-      <!-- Formulário de contato -->
+      <!-- Formulário — componente .form -->
       <div class="contato__form-wrap">
         <form class="form" id="contatoForm" novalidate aria-label="Formulário de contato">
 
           <div class="form__group">
             <label class="form__label" for="nome">Nome completo</label>
-            <input
-              class="form__input"
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Seu nome"
-              required
-              autocomplete="name"
-            />
+            <input class="form__input" type="text" id="nome" name="nome"
+                   placeholder="Seu nome" required autocomplete="name" />
           </div>
 
           <div class="form__group">
             <label class="form__label" for="email">E-mail</label>
-            <input
-              class="form__input"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="seu@email.com"
-              required
-              autocomplete="email"
-            />
+            <input class="form__input" type="email" id="email" name="email"
+                   placeholder="seu@email.com" required autocomplete="email" />
           </div>
 
           <div class="form__group">
             <label class="form__label" for="assunto">Assunto</label>
-            <input
-              class="form__input"
-              type="text"
-              id="assunto"
-              name="assunto"
-              placeholder="Como podemos ajudar?"
-            />
+            <input class="form__input" type="text" id="assunto" name="assunto"
+                   placeholder="Como podemos ajudar?" />
           </div>
 
           <div class="form__group">
             <label class="form__label" for="mensagem">Mensagem</label>
-            <textarea
-              class="form__input form__textarea"
-              id="mensagem"
-              name="mensagem"
-              rows="5"
-              placeholder="Conte-nos sobre seu projeto..."
-              required
-            ></textarea>
+            <!-- Modificador .form__input--textarea para textarea -->
+            <textarea class="form__input form__input--textarea"
+                      id="mensagem" name="mensagem" rows="5"
+                      placeholder="Conte-nos sobre seu projeto..."
+                      required></textarea>
           </div>
 
           <button type="submit" class="btn btn--gold btn--full">
             Enviar mensagem
           </button>
 
-          <!-- Feedback de envio -->
           <p class="form__feedback" id="formFeedback" role="alert" aria-live="polite"></p>
         </form>
       </div>
@@ -424,7 +419,7 @@
        FOOTER
        ======================================================== -->
   <footer class="footer" aria-label="Rodapé">
-    <div class="container footer__inner">
+    <div class="u-container footer__inner">
       <p class="footer__brand">ACW · Agência Criativa Web</p>
       <nav aria-label="Links do rodapé">
         <ul class="footer__links">
@@ -437,7 +432,6 @@
       <p class="footer__copy">&copy; 2025 Agência Criativa Web. Todos os direitos reservados.</p>
     </div>
   </footer>
-
 
   <script src="script.js"></script>
 </body>
